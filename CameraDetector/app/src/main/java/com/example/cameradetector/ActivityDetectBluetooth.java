@@ -95,26 +95,51 @@ public class ActivityDetectBluetooth extends BaseActivityWithToolBar {
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 
-        if (requestCode == PERMISSION_REQUEST_CODE) {
-            boolean allGranted = true;
-            for (int result : grantResults) {
-                if (result != PackageManager.PERMISSION_GRANTED) {
-                    allGranted = false;
-                    break;
+        if (requestCode == PERMISSION_REQUEST_CODE) {  // For Bluetooth
+            boolean bluetoothGranted = false;
+
+            for (int i = 0; i < permissions.length; i++) {
+                if (permissions[i].equals(Manifest.permission.BLUETOOTH) && grantResults[i] == PackageManager.PERMISSION_GRANTED) {
+                    bluetoothGranted = true;
+                    break;  // Stop checking after finding Bluetooth permission
                 }
             }
-            if (allGranted) {
+
+            if (bluetoothGranted) {
                 startBluetoothScan();
             } else {
-                if (isPermissionPermanentlyDenied()) {
+                if (isPermissionPermanentlyDenied(Manifest.permission.BLUETOOTH)) {
                     showSettingsDialog();
                 } else {
-                    Toast.makeText(this, "Permission denied!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "Bluetooth permission is required!", Toast.LENGTH_SHORT).show();
+                }
+            }
+        }
+
+        else if (requestCode == PERMISSION_REQUEST_CODE_LOCATION) {  // For Location
+            boolean locationGranted = false;
+
+            for (int i = 0; i < permissions.length; i++) {
+                if (permissions[i].equals(Manifest.permission.ACCESS_FINE_LOCATION) && grantResults[i] == PackageManager.PERMISSION_GRANTED) {
+                    locationGranted = true;
+                    break;  // Stop checking after finding Location permission
+                }
+            }
+
+            if (locationGranted) {
+                startBluetoothScan();
+            } else {
+                if (isPermissionPermanentlyDenied(Manifest.permission.ACCESS_FINE_LOCATION)) {
+                    showSettingsDialog();
+                } else {
+                    Toast.makeText(this, "Location permission is required!", Toast.LENGTH_SHORT).show();
                 }
             }
         }
     }
-
+    private boolean isPermissionPermanentlyDenied(String permission) {
+        return !ActivityCompat.shouldShowRequestPermissionRationale(this, permission);
+    }
     @SuppressLint("MissingPermission")
     private void startBluetoothScan() {
         if (!bluetoothAdapter.isEnabled()) {

@@ -7,10 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".ActivityInfraredCamera">
 
-    <include
-        layout="@layout/custom_toolbar_have_background"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
 
     <androidx.camera.view.PreviewView
         android:id="@+id/cameraView"
@@ -18,6 +14,10 @@
         android:layout_height="match_parent"
         android:layout_centerInParent="true" />
 
+    <include
+        layout="@layout/custom_toolbar_have_background"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
     <ImageView
         android:id="@+id/filter"
         android:layout_width="match_parent"
@@ -28,14 +28,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="-32dp"
+        android:background="@color/transparent"
+        android:backgroundTint="@color/transparent"
+        app:cardElevation="0dp"
         app:cardCornerRadius="32dp"
         app:layout_constraintBottom_toBottomOf="parent">
-
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@color/black_transparent">
+        </ImageView>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="32dp"
-            android:background="@color/black_transparent"
             android:gravity="center"
             android:orientation="vertical">
 
@@ -79,7 +85,6 @@
                     android:backgroundTint="@color/gray_soft"
                     app:cardCornerRadius="12dp"></androidx.cardview.widget.CardView>
             </LinearLayout>
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
@@ -124,7 +129,6 @@
                         android:textSize="16sp"></TextView>
                 </androidx.cardview.widget.CardView>
             </LinearLayout>
-
             <ImageButton
                 android:id="@+id/captureButton"
                 android:layout_width="wrap_content"

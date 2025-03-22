@@ -111,15 +111,15 @@ public class ActivityInfraredCamera extends BaseActivityWithToolBar {
     }
     private void onClickGreenFilter()
     {
-        filter.setImageResource(R.color.red_trans);
+        filter.setImageResource(R.color.green_trans);
     }
     private void onClickBlueFilter()
     {
-        filter.setImageResource(R.color.red_trans);
+        filter.setImageResource(R.color.blue_trans);
     }
     private void onClickGreyFilter()
     {
-        filter.setImageResource(R.color.red_trans);
+        filter.setImageResource(R.color.grey_trans);
     }
 
     @Override
