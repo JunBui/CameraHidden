@@ -1,4 +1,6 @@
 package com.example.cameradetector;
+import static android.view.View.INVISIBLE;
+
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
@@ -39,6 +41,12 @@ public class ActivityDetectBluetooth extends BaseActivityWithToolBar {
     private RecyclerView recyclerView;
 
     @Override
+    protected void setToolBarTitle() {
+        super.setToolBarTitle();
+        titleTxt.setText("Bluetooth Detector");
+    }
+
+    @Override
     protected int getLayoutId() {
         return R.layout.activity_detect_bluetooth;
     }
@@ -46,7 +54,6 @@ public class ActivityDetectBluetooth extends BaseActivityWithToolBar {
     @Override
     protected void onCreateActivity(Bundle savedInstanceState) {
         super.onCreateActivity(savedInstanceState);
-
         recyclerView = findViewById(R.id.device_list);
         deviceList = new ArrayList<>();
         adapter = new BluetoothDeviceAdapter(deviceList);
