@@ -1,4 +1,7 @@
 package com.example.cameradetector;
+import static android.view.View.INVISIBLE;
+import static android.view.View.VISIBLE;
+
 import android.Manifest;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -12,6 +15,7 @@ import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -34,26 +38,39 @@ public class ActivityDetectWifi extends BaseActivityWithToolBar {
     private WifiManager wifiManager;
     private List<ScanResult> wifiList = new ArrayList<>();
     private WifiAdapter adapter;
-
+    RecyclerView recyclerView;
+    public View scanBtnLayout;
+    public View scanRadarLayout;
+    public View scanBtn;
     @Override
     protected int getLayoutId() {
         return R.layout.activity_detect_wifi;
     }
-
     @Override
     protected void initUiOnCreate() {
         super.initUiOnCreate();
-        RecyclerView recyclerView = findViewById(R.id.recycler_view);
+        recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter = new WifiAdapter(wifiList);
         recyclerView.setAdapter(adapter);
 
         wifiManager = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
 
-        // Yêu cầu quyền và quét WiFi
+        scanBtnLayout = findViewById(R.id.scanBtnLayout);
+        scanRadarLayout = findViewById(R.id.scanRadarLayout);
+        scanBtn = findViewById(R.id.scanBtn);
+        scanBtn.setOnClickListener(v->onClickScanBtn());
+    }
+    private void onClickScanBtn()
+    {
+        scanRadarLayout.setVisibility(VISIBLE);
         requestPermissions();
     }
-
+    @Override
+    protected void setToolBarTitle() {
+        super.setToolBarTitle();
+        titleTxt.setText(R.string.wifi_scanner);
+    }
     private void requestPermissions() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
@@ -64,7 +81,8 @@ public class ActivityDetectWifi extends BaseActivityWithToolBar {
         } else {
             startWifiScan();
         }
-    }private void startWifiScan() {
+    }
+    private void startWifiScan() {
         if (!wifiManager.isWifiEnabled()) {
             Toast.makeText(this, "Enabling WiFi...", Toast.LENGTH_SHORT).show();
             wifiManager.setWifiEnabled(true);
@@ -105,13 +123,13 @@ public class ActivityDetectWifi extends BaseActivityWithToolBar {
         }
         wifiList.addAll(wifiManager.getScanResults());  // Thêm danh sách mới
         adapter.notifyDataSetChanged();  // Cập nhật RecyclerView
+        scanBtnLayout.setVisibility(INVISIBLE);
         Log.d(TAG, "WiFi scan successful: " + wifiList.size() + " networks found.");
     }
     private void scanFailure() {
         Toast.makeText(this, "WiFi scan failed!", Toast.LENGTH_SHORT).show();
         Log.e(TAG, "WiFi scan failed.");
     }
-
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
@@ -123,5 +141,4 @@ public class ActivityDetectWifi extends BaseActivityWithToolBar {
             }
         }
     }
-
 }
