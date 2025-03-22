@@ -13,12 +13,65 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/wifiListLayout"
+        android:visibility="invisible"
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@+id/customToolbar" />
-
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@+id/customToolbar">
+        <LinearLayout
+            android:id="@+id/foundWifiBtnLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:gravity="center"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_marginTop="16dp"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:src="@color/blue_dark">
+            </ImageView>
+            <TextView
+                android:id="@+id/totalWifiFoundTxt"
+                android:layout_marginTop="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Found suspicious devices: ">
+            </TextView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/seeAllWifiBtn"
+                android:layout_marginTop="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/blue"
+                app:cardCornerRadius="20dp"
+                >
+                <TextView
+                    android:layout_marginVertical="8dp"
+                    android:layout_marginHorizontal="32dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="See Devices"
+                    android:textColor="@color/white">
+                </TextView>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:visibility="gone"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="0dp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
     <LinearLayout
         android:id="@+id/scanBtnLayout"
         android:layout_width="match_parent"
@@ -73,7 +126,7 @@
                 </androidx.cardview.widget.CardView>
             </androidx.cardview.widget.CardView>
             <androidx.cardview.widget.CardView
-                android:visibility="invisible"
+                android:visibility="gone"
                 android:id="@+id/scanRadarLayout"
                 android:layout_width="200dp"
                 android:layout_height="200dp"
