@@ -41,7 +41,8 @@ public class MainActivity extends BaseActivity {
     }
     private void onClickBtnFindCamera()
     {
-
+        Intent intent = new Intent(MainActivity.this, ActivityInfraredCamera.class);
+        startActivity(intent);
     }
     private void onClickBtnWifi()
     {

@@ -16,7 +16,7 @@
     <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
-    <uses-permission android:name="android.permission.BLUETOOTH_ADVERTISE"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADVERTISE" />
     <uses-permission android:name="android.permission.FLASHLIGHT" />
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.CAMERA" />
@@ -32,6 +32,9 @@
         android:theme="@style/Theme.CameraDetector"
         tools:targetApi="31">
         <activity
+            android:name=".ActivityInfraredCamera"
+            android:exported="false" />
+        <activity
             android:name=".ActivityBaseScanUi"
             android:exported="false" />
         <activity
@@ -45,10 +48,10 @@
         </activity>
         <activity
             android:name=".ActivityDetectBluetooth"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".ActivityDetectWifi"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".DetectorBaseActivity"
             android:exported="true" />

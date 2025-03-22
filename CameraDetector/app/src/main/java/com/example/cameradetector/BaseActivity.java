@@ -18,6 +18,9 @@ public abstract class BaseActivity extends AppCompatActivity {
         setContentView(getLayoutId());
         onCreateActivity(savedInstanceState);
         initUiOnCreate();
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().hide();
+        }
     }
     protected abstract void onCreateActivity(Bundle savedInstanceState);
     protected void initUiOnCreate()
