@@ -3,6 +3,14 @@
     <string name="camera">Camera</string>
     <string name="enable">Enable</string>
     <string name="wifi_scanner">Wifi Scanner</string>
+    <string name="language">Language</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="rate_app">Rate App</string>
+    <string name="version">Version</string>
+    <string name="setting">Setting</string>
+    <string name="the_best_rating_star">The best rating star</string>
+    <string name="submit">Submit</string>
+    <string name="no_thanks">No thanks</string>
     <string name="permission_required">Permission Required</string>
     <string name="permission">Permission</string>
     <string name="start_detect">Start Detect</string>

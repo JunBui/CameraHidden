@@ -16,6 +16,7 @@ public class MainActivity extends BaseActivity {
     private View btnBluetooth;
     private View btnMagnetic;
     private View btnTips;
+    private View btnSetting;
     @Override
     protected void onCreateActivity(Bundle savedInstanceState) {
 
@@ -38,6 +39,10 @@ public class MainActivity extends BaseActivity {
         btnTips = findViewById(R.id.btnTips);
         btnTips.setOnClickListener(v -> onClickBtnTips());
         ViewScaleAnim(btnTips);
+
+        btnSetting = findViewById(R.id.btnSetting);
+        btnSetting.setOnClickListener(v -> onClickBtnSetting());
+        ViewScaleAnim(btnSetting);
     }
     private void onClickBtnFindCamera()
     {
@@ -57,6 +62,11 @@ public class MainActivity extends BaseActivity {
     private void onClickBtnMagnetic()
     {
         Intent intent = new Intent(MainActivity.this, DetectorBaseActivity.class);
+        startActivity(intent);
+    }
+    private void onClickBtnSetting()
+    {
+        Intent intent = new Intent(this, ActivitySetting.class);
         startActivity(intent);
     }
     private void onClickBtnTips()
