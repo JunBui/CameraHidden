@@ -25,4 +25,27 @@
     <string name="please_remove_your_phonecase">Please remove your phonecase.</string>
     <string name="the_electric_field_sensors_are_in_this_position">The electric field sensors are in this position.</string>
     <string name="if_you_search_underwater_make_sure_your_phone_has_a_waterproof_device">If you search underwater make sure your phone has a waterproof device.</string>
+    <string name="tip_1">Connect to a WIFI network, Open the App and Navigate to WIFI Scan.</string>
+    <string name="tip_1_bluetooth">Turn on bluetooth on your device</string>
+    <string name="tip_1_infrared">Turn off all the lights in the room and proceed to the next step.</string>
+    <string name="tip_1_lens">Turn off all the lights in the room and proceed to the next step.</string>
+    <string name="tip_1_magnetic">Please remove your phone case</string>
+    <string name="tip_2">Tap “Scan” button and wait for results. The app will begin scanning for all nearby WIFI devices.</string>
+    <string name="tip_2_bluetooth">Tap “Scan” button and wait for results. The app will begin scanning for all nearby Bluetooth devices.</string>
+    <string name="tip_2_infrared">Grant camera access, then turn on the camera and select color</string>
+    <string name="tip_2_lens">Grant camera access, then turn on the camera</string>
+    <string name="tip_2_magnetic">Tap “Start Detect” button and bring your device to the place you want to scan. The app will begin scanning for all nearby Magnetic object.</string>
+    <string name="tip_3">Tap “View Device” and check the list of suspicious devices.</string>
+    <string name="tip_3_infrared">Point the camera or bring your phone close to suspicious locations with hidden cameras.</string>
+    <string name="tip_3_lens">Point the camera or bring your phone close to suspicious locations with hidden cameras.</string>
+    <string name="tip_3_magnetic">Turn on Camera, Vibration, Flash or Sound for easier detection</string>
+    <string name="tip_4">Review Detected Devices: The app will list all devices connected to the network. Look for any unfamiliar or suspicious devices that might be hidden cameras.</string>
+    <string name="tip_4_infrared">If there is a red light, it is likely a hidden camera device.</string>
+    <string name="tip_4_lens">If there is a red circle, it is likely a hidden camera device.</string>
+    <string name="tip_4_magnetic">Tap Pause to stop detect</string>
+    <string name="how_to_use_bluetooth_scanner">How to use Bluetooth Scanner?</string>
+    <string name="how_to_use_infrared_detection">How to use Infrared Detection?</string>
+    <string name="how_to_use_lens_detection">How to use Lens Detection?</string>
+    <string name="how_to_use_magnetic_scanner">How to use Magnetic Scanner?</string>
+    <string name="how_to_use_wifi_scanner">How to use Wifi Scanner?</string>
 </resources>

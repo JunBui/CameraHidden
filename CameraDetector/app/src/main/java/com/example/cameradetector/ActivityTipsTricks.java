@@ -1,14 +1,7 @@
 package com.example.cameradetector;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.view.View;
-
-import androidx.activity.EdgeToEdge;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 public class ActivityTipsTricks extends BaseActivityWithToolBar {
 
@@ -33,13 +26,13 @@ public class ActivityTipsTricks extends BaseActivityWithToolBar {
         btnTipBluetoothScanner.setOnClickListener(v->goToTipsActivity(EnumTips.bluetoothScanner));
 
         btnTipMagneticScanner = findViewById(R.id.btnTipMagneticScanner);
-        btnTipMagneticScanner.setOnClickListener(v->goToTipsActivity(EnumTips.MagneticScanner));
+        btnTipMagneticScanner.setOnClickListener(v->goToTipsActivity(EnumTips.magneticScanner));
 
         btnTipLensDetector = findViewById(R.id.btnTipLensDetector);
-        btnTipLensDetector.setOnClickListener(v->goToTipsActivity(EnumTips.LensDetection));
+        btnTipLensDetector.setOnClickListener(v->goToTipsActivity(EnumTips.lensDetection));
 
         btnTipInfraredDetector = findViewById(R.id.btnTipInfraredDetector);
-        btnTipInfraredDetector.setOnClickListener(v->goToTipsActivity(EnumTips.InfraredDetection));
+        btnTipInfraredDetector.setOnClickListener(v->goToTipsActivity(EnumTips.infraredDetection));
     }
 
     public void goToTipsActivity(EnumTips enumTips)
