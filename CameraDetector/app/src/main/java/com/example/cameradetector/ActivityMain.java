@@ -4,13 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import androidx.activity.EdgeToEdge;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
-
-public class MainActivity extends BaseActivity {
+public class ActivityMain extends BaseActivity {
     private View btnFindCamera;
     private View btnWifi;
     private View btnBluetooth;
@@ -46,22 +40,22 @@ public class MainActivity extends BaseActivity {
     }
     private void onClickBtnFindCamera()
     {
-        Intent intent = new Intent(MainActivity.this, ActivityInfraredCamera.class);
+        Intent intent = new Intent(ActivityMain.this, ActivityInfraredCamera.class);
         startActivity(intent);
     }
     private void onClickBtnWifi()
     {
-        Intent intent = new Intent(MainActivity.this, ActivityDetectWifi.class);
+        Intent intent = new Intent(ActivityMain.this, ActivityDetectWifi.class);
         startActivity(intent);
     }
     private void onClickBtnBluetooth()
     {
-        Intent intent = new Intent(MainActivity.this, ActivityDetectBluetooth.class);
+        Intent intent = new Intent(ActivityMain.this, ActivityDetectBluetooth.class);
         startActivity(intent);
     }
     private void onClickBtnMagnetic()
     {
-        Intent intent = new Intent(MainActivity.this, DetectorBaseActivity.class);
+        Intent intent = new Intent(ActivityMain.this, DetectorBaseActivity.class);
         startActivity(intent);
     }
     private void onClickBtnSetting()
@@ -71,7 +65,8 @@ public class MainActivity extends BaseActivity {
     }
     private void onClickBtnTips()
     {
-
+        Intent intent = new Intent(this, ActivityTipsTricks.class);
+        startActivity(intent);
     }
 
     @Override

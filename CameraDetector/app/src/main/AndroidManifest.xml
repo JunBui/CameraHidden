@@ -32,7 +32,13 @@
         android:theme="@style/Theme.CameraDetector"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".ActivityTips"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityTipsTricks"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityMain"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
