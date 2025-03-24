@@ -32,6 +32,9 @@
         android:theme="@style/Theme.CameraDetector"
         tools:targetApi="31">
         <activity
+            android:name=".ActivityTricks"
+            android:exported="false" />
+        <activity
             android:name=".ActivityTips"
             android:exported="false" />
         <activity
