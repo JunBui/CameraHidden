@@ -43,9 +43,32 @@
     <string name="tip_4_infrared">If there is a red light, it is likely a hidden camera device.</string>
     <string name="tip_4_lens">If there is a red circle, it is likely a hidden camera device.</string>
     <string name="tip_4_magnetic">Tap Pause to stop detect</string>
+
+    <string name="trick_1">Visual Inspection: Look for unusual or out-of-place objects: Carefully inspect items like :</string>
+    <string name="trick_bath_2">Check for two-way mirrors: Use the \"fingernail test\" to check for two-way mirrors. Place your fingernail against the mirror’s surface. If there is a gap between your finger and its reflection, it\'s likely a normal mirror. If there is no gap, it could be a two-way mirror with a camera behind it.</string>
+    <string name="trick_bed_1">Visual Inspection: Carefully examine the room for any unusual object like:</string>
+    <string name="trick_2">Use a Infrared Camera: Turn off the lights in the room and use infrared camera to scan the area. The camera lens might reflect light, making it easier to detect.</string>
+    <string name="trick_3">Listen for Unusual Sounds: Listen for faint noises: Some cameras may emit faint noises, such as clicks or motor sounds when operating. Stay quiet and listen for anything unusual.</string>
+    <string name="trick_4">Request a Security Check: If you suspect a hidden camera, you can request a security professional to inspect the room.</string>
+    <string name="trick_living_2">Cameras can be disguised in everyday objects like alarm clocks, TV set-top boxes, or even inside light bulbs</string>
+
     <string name="how_to_use_bluetooth_scanner">How to use Bluetooth Scanner?</string>
     <string name="how_to_use_infrared_detection">How to use Infrared Detection?</string>
     <string name="how_to_use_lens_detection">How to use Lens Detection?</string>
     <string name="how_to_use_magnetic_scanner">How to use Magnetic Scanner?</string>
     <string name="how_to_use_wifi_scanner">How to use Wifi Scanner?</string>
+    <string name="bathroom">Bathroom</string>
+    <string name="bedroom">Bedroom</string>
+    <string name="changing_room">Changing room</string>
+    <string name="living_room">Living room</string>
+    <string name="electrical_outlet">Electrical outlet</string>
+    <string name="small_lenses_or_holes">Small lenses or holes</string>
+    <string name="smoke_detectors">Smoke Detectors</string>
+    <string name="clocks">Clocks</string>
+    <string name="clothes_hanger">Clothes Hanger</string>
+    <string name="shower_head">Shower head</string>
+    <string name="small_bottles">Small bottles</string>
+    <string name="bookshelves">Bookshelves</string>
+    <string name="plant_pot">Plant pot</string>
+    <string name="picture_frames">Picture Frames</string>
 </resources>
