@@ -37,10 +37,11 @@
                         android:orientation="horizontal"
                         android:layout_marginHorizontal="16dp"
                         android:layout_marginTop="16dp"
-                        android:gravity="left|center"
+                        android:gravity="left"
                         android:layoutDirection="ltr">
 
                         <TextView
+                            android:id="@+id/orderText"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="1."
@@ -57,13 +58,20 @@
                             android:textSize="16sp">
                         </TextView>
                     </LinearLayout>
-                    <ImageView
-                        android:id="@+id/descriptionImage"
-                        android:layout_width="match_parent"
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/tips_detector_01"
-                        android:layout_margin="10dp">
-                    </ImageView>
+                        android:layout_gravity="center"
+                        app:cardCornerRadius="32dp"
+                        android:layout_margin="10dp"
+                        >
+                        <ImageView
+                            android:id="@+id/descriptionImage"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/tips_detector_01">
+                        </ImageView>
+                    </androidx.cardview.widget.CardView>
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/recyclerView"
                         android:layout_width="match_parent"

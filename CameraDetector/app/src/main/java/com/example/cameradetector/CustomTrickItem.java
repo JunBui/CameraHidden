@@ -16,7 +16,7 @@ public class CustomTrickItem extends FrameLayout {
         return descriptionImage;
     }
     private ImageView descriptionImage;
-    private TextView title;
+    private TextView orderText;
     private TextView description;
 
     public RecyclerView recyclerView;
@@ -40,8 +40,9 @@ public class CustomTrickItem extends FrameLayout {
         LayoutInflater.from(context).inflate(R.layout.custom_tricks_item, this, true);
         recyclerView = findViewById(R.id.recyclerView);
         descriptionImage = findViewById(R.id.descriptionImage);
-        title = findViewById(R.id.title);
+//        title = findViewById(R.id.title);
         description = findViewById(R.id.description);
+        orderText = findViewById(R.id.orderText);
 
         if (attrs != null) {
             TypedArray a = context.getTheme().obtainStyledAttributes(attrs, R.styleable.CustomTutorialItem, 0, 0);
@@ -49,11 +50,6 @@ public class CustomTrickItem extends FrameLayout {
                 int descriptionImageResId = a.getResourceId(R.styleable.CustomTutorialItem_description_image, 0);
                 if (descriptionImageResId != 0) {
                     descriptionImage.setImageResource(descriptionImageResId);
-                }
-
-                String text = a.getString(R.styleable.CustomTutorialItem_title);
-                if (text != null) {
-                    title.setText(text);
                 }
                 String descriptionString = a.getString(R.styleable.CustomTutorialItem_description);
                 if (descriptionString != null) {
@@ -75,10 +71,13 @@ public class CustomTrickItem extends FrameLayout {
         }
     }
 
-    public void setTitleText(String text) {
-        title.setText(text);
-    }
+//    public void setTitleText(String text) {
+//        title.setText(text);
+//    }
     public void setDescription(String text) {
         description.setText(text);
+    }
+    public void setOrderText(String text) {
+        orderText.setText(text);
     }
 }

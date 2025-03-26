@@ -15,6 +15,7 @@ public class ActivityTricks extends BaseActivityWithToolBar {
     private ViewPager2 viewPager;
     private LinearLayout dotsContainer;
     private int totalPages;
+
     @Override
     protected void initUiOnCreate() {
         super.initUiOnCreate();
@@ -24,18 +25,17 @@ public class ActivityTricks extends BaseActivityWithToolBar {
         EnumTricks myEnumValue = (EnumTricks) getIntent().getSerializableExtra("Tricks_Enum");
         if (myEnumValue != null) {
             // Use the enum value
-            switch (myEnumValue)
-            {
+            switch (myEnumValue) {
                 case Bedroom:
                     List<ImageAndTitle> imageAndTitles = new ArrayList<>();
                     imageAndTitles.add(new ImageAndTitle(R.drawable.img_electrical_outlet, R.string.electrical_outlet));
                     imageAndTitles.add(new ImageAndTitle(R.drawable.img_lenses_hole, R.string.small_lenses_or_holes));
                     imageAndTitles.add(new ImageAndTitle(R.drawable.img_smoke_detector, R.string.smoke_detectors));
                     imageAndTitles.add(new ImageAndTitle(R.drawable.img_clocks, R.string.clocks));
-                    sliderItems = Arrays.asList(
-                        new TricksSlideItem(0, R.string.trick_bed_1,imageAndTitles),
-                        new TricksSlideItem(0, R.string.trick_2,new ArrayList<ImageAndTitle>())
-                    );
+                    sliderItems.addAll(Arrays.asList(
+                            new TricksSlideItem(0, R.string.trick_bed_1, imageAndTitles),
+                            new TricksSlideItem(R.drawable.image_infrared_camera, R.string.trick_2, new ArrayList<ImageAndTitle>())
+                    ));
                     break;
                 case LivingRoom:
                     List<ImageAndTitle> imageAndTitlesLivingRoom = new ArrayList<>();
@@ -43,9 +43,9 @@ public class ActivityTricks extends BaseActivityWithToolBar {
                     imageAndTitlesLivingRoom.add(new ImageAndTitle(R.drawable.img_bookshelves, R.string.bookshelves));
                     imageAndTitlesLivingRoom.add(new ImageAndTitle(R.drawable.img_smoke_detector, R.string.smoke_detectors));
                     imageAndTitlesLivingRoom.add(new ImageAndTitle(R.drawable.img_plant_pot, R.string.plant_pot));
-                    sliderItems = Arrays.asList(
-                            new TricksSlideItem(0, R.string.trick_living_2,imageAndTitlesLivingRoom)
-                    );
+                    sliderItems.addAll(Arrays.asList(
+                            new TricksSlideItem(0, R.string.trick_living_2, imageAndTitlesLivingRoom)
+                    ));
                     break;
                 case Bathroom:
                     List<ImageAndTitle> imageAndTitlesBathRoom = new ArrayList<>();
@@ -53,10 +53,10 @@ public class ActivityTricks extends BaseActivityWithToolBar {
                     imageAndTitlesBathRoom.add(new ImageAndTitle(R.drawable.img_electrical_outlet, R.string.electrical_outlet));
                     imageAndTitlesBathRoom.add(new ImageAndTitle(R.drawable.img_lenses_hole, R.string.small_lenses_or_holes));
                     imageAndTitlesBathRoom.add(new ImageAndTitle(R.drawable.img_small_bottle, R.string.small_bottles));
-                    sliderItems = Arrays.asList(
-                            new TricksSlideItem(0, R.string.trick_1,imageAndTitlesBathRoom),
-                            new TricksSlideItem(R.drawable.img_two_ways_mirror, R.string.trick_bath_2,new ArrayList<ImageAndTitle>())
-                    );
+                    sliderItems.addAll(Arrays.asList(
+                            new TricksSlideItem(0, R.string.trick_1, imageAndTitlesBathRoom),
+                            new TricksSlideItem(R.drawable.img_two_ways_mirror, R.string.trick_bath_2, new ArrayList<ImageAndTitle>())
+                    ));
                     break;
                 case ChangingRoom:
                     List<ImageAndTitle> imageAndTitlesChangingRoom = new ArrayList<>();
@@ -64,18 +64,18 @@ public class ActivityTricks extends BaseActivityWithToolBar {
                     imageAndTitlesChangingRoom.add(new ImageAndTitle(R.drawable.img_electrical_outlet, R.string.electrical_outlet));
                     imageAndTitlesChangingRoom.add(new ImageAndTitle(R.drawable.img_lenses_hole, R.string.small_lenses_or_holes));
                     imageAndTitlesChangingRoom.add(new ImageAndTitle(R.drawable.img_smoke_detector, R.string.smoke_detectors));
-                    sliderItems = Arrays.asList(
-                            new TricksSlideItem(0, R.string.trick_1,imageAndTitlesChangingRoom),
-                            new TricksSlideItem(R.drawable.img_changing_room, R.string.trick_2,new ArrayList<ImageAndTitle>())
-                    );
+                    sliderItems.addAll(Arrays.asList(
+                            new TricksSlideItem(0, R.string.trick_1, imageAndTitlesChangingRoom),
+                            new TricksSlideItem(R.drawable.img_changing_room, R.string.trick_2, new ArrayList<ImageAndTitle>())
+                    ));
                     break;
             }
         }
-        sliderItems.add(new TricksSlideItem(R.drawable.img_listen, R.string.trick_3,new ArrayList<ImageAndTitle>()));
-        sliderItems.add(new TricksSlideItem(R.drawable.img_security_check, R.string.trick_4,new ArrayList<ImageAndTitle>()));
+        sliderItems.add(new TricksSlideItem(R.drawable.img_listen, R.string.trick_3, new ArrayList<ImageAndTitle>()));
+        sliderItems.add(new TricksSlideItem(R.drawable.img_security_check, R.string.trick_4, new ArrayList<ImageAndTitle>()));
 
         totalPages = sliderItems.size();
-        viewPager.setAdapter(new TrickSliderAdapter(getContext(),sliderItems));
+        viewPager.setAdapter(new TrickSliderAdapter(getContext(), sliderItems));
 
         setupDots();
         updateDots(0);
@@ -87,6 +87,7 @@ public class ActivityTricks extends BaseActivityWithToolBar {
             }
         });
     }
+
     private void setupDots() {
         dotsContainer.removeAllViews();
         for (int i = 0; i < totalPages; i++) {
@@ -109,18 +110,19 @@ public class ActivityTricks extends BaseActivityWithToolBar {
             dot.setImageDrawable(drawable);
         }
     }
+
     @Override
     protected int getLayoutId() {
         return R.layout.activity_tricks;
     }
+
     @Override
     protected void setToolBarTitle() {
         super.setToolBarTitle();
         EnumTricks myEnumValue = (EnumTricks) getIntent().getSerializableExtra("Tricks_Enum");
         if (myEnumValue != null) {
             // Use the enum value
-            switch (myEnumValue)
-            {
+            switch (myEnumValue) {
                 case Bedroom:
                     titleTxt.setText(R.string.bedroom);
                     break;

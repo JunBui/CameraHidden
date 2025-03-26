@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -31,6 +32,7 @@ public class TrickSliderAdapter extends RecyclerView.Adapter<TrickSliderAdapter.
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         TricksSlideItem item = sliderItems.get(position);
         holder.customTutorialItem.setDescription(context.getString(item.getDescription()));
+        holder.customTutorialItem.setOrderText((position+1)+".");
         if (item.getImageRes() == 0) {
             holder.customTutorialItem.setDescriptionImage(0); // Set ảnh rỗng
             holder.customTutorialItem.getDescriptionImage().setVisibility(View.GONE);
@@ -42,7 +44,8 @@ public class TrickSliderAdapter extends RecyclerView.Adapter<TrickSliderAdapter.
 
 
         ImageAndTitleAdapter adapter = new ImageAndTitleAdapter(context,item.getImageAndTitles());
-        holder.customTutorialItem.recyclerView.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
+
+        holder.customTutorialItem.recyclerView.setLayoutManager(new GridLayoutManager(context, 2));
         holder.customTutorialItem.recyclerView.setAdapter(adapter);
     }
 
